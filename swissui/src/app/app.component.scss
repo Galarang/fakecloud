@@ -1,0 +1,132 @@
+.container {
+  margin: auto;
+  margin-top: 0;
+  align-items: center;
+display: flex;
+flex-direction: column;
+}
+
+.title {
+  font-weight: bold;
+}
+
+form {
+  margin: auto;
+  margin-top: 2%;
+  text-align: center;
+  width: 60%;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+form select{
+  width: 600px;
+  background: #fff;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(7, 100, 30, 0.418);
+  border: 0;
+  outline: 0;
+  padding: 10px 20px;
+  margin-bottom: 3%;
+}
+
+form label {
+  width: 20%;
+  margin: auto;
+}
+
+form input[type="date"] {
+  width: 40%;
+}
+
+form input[type="time"] {
+  width: 40%;
+}
+
+form button:disabled {
+  cursor: not-allowed;
+}
+
+
+input{
+  width: 600px;
+  background: #fff;
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(7, 100, 30, 0.418);
+  border: 0;
+  outline: 0;
+  padding: 10px 20px;
+  margin-bottom: 3%;
+}
+
+button {
+  box-sizing: border-box;
+-webkit-appearance: none;
+   -moz-appearance: none;
+        appearance: none;
+background-color: #197c37;
+border: 2px solid #1faa49;
+border-radius: 0.6em;
+color: #ffffff;
+cursor: pointer;
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1;
+margin: 20px;
+padding: 1.4em 2.8em;
+text-decoration: none;
+text-align: center;
+text-transform: uppercase;
+font-family: 'Montserrat', sans-serif;
+font-weight: 700;
+margin: auto;
+}
+
+button:hover {
+  color: #fff;
+outline: 0;
+box-shadow: 0 0 40px 40px #49b64f inset;
+}
+
+button:active {
+  background-color: rgb(186, 214, 191);
+  color: #085720;
+}
+
+button:disabled {
+  border: 2px solid #62b87b;
+  background-color: #acbdb2;
+  pointer-events: none;
+}
+
+.text-success {
+  color: greenyellow;
+}
+
+.text-danger {
+  color: red;
+}
+
+.text-special {
+  font-style: italic;
+}
+
+.content2 {
+  text-align: center;
+}
+
+.error {
+  margin-top: 80px;
+  color: red;
+}

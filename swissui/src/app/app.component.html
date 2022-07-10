@@ -1,0 +1,84 @@
+<div class="container">
+  <h2>Swiss UI:</h2>
+  <form #requestForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <input
+      type="text"
+      required
+      placeholder="from..."
+      [(ngModel)]="requestObject.locationFrom"
+      name="locationFrom"
+    /><br />
+
+    <input
+      type="text"
+      required
+      placeholder="to..."
+      [(ngModel)]="requestObject.locationTo"
+      name="locationTo"
+    /><br /><br />
+
+    <label class="title">Transportation type: </label><br /><br />
+    <select
+      [(ngModel)]="requestObject.transportation"
+      name="confirmationMethod"
+      required
+    >
+      <option *ngFor="let type of transportationTypes" value="{{ type }}">
+        {{ type }}
+      </option>
+    </select>
+    <br /><br />
+
+    <div *ngIf="!checkStopsAreFull()">
+      <input
+        type="text"
+        placeholder="Add stops..."
+        [(ngModel)]="viaField"
+        name="viaField"
+      /><br />
+
+      <button
+        type="button"
+        (click)="addStopToViaList()"
+        [disabled]="isViaEmptyOrContainsDuplicate()"
+      >
+        Add stop</button
+      ><br />
+    </div>
+
+    <div *ngIf="containsStop()">
+      <label class="title">Via: </label><br /><br />
+      <!-- <label *ngFor="let stop of requestObject.via"> {{ stop }} <br /> </label> -->
+      <mat-selection-list #stops>
+        <mat-list-option
+          style="display: flex; justify-content: center"
+          *ngFor="let stop of requestObject.via"
+          [value]="stop"
+          >{{ stop }}
+        </mat-list-option>
+        <mat-icon
+          *ngIf="stops.selectedOptions.selected.length > 0"
+          (click)="deleteSelectedStops(stops.selectedOptions.selected)"
+          >delete</mat-icon
+        >
+      </mat-selection-list>
+    </div>
+
+    <br /><br />
+
+    <button type="submit" [disabled]="requestForm.form.invalid">
+      Get duration
+    </button>
+    <div *ngIf="message && !errorMessage">
+      <br /><br />
+      <h2>Average time needed: {{ message }}</h2>
+    </div>
+  </form>
+</div>
+<div class="content2" *ngIf="errorMessage">
+  <h2 class="error">
+    {{ errorMessage.error?.message }} <br />
+    {{ errorMessage.error?.status }} <br />
+    {{ errorMessage.error?.timestamp }}
+  </h2>
+</div>
